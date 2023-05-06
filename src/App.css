@@ -1,38 +1,60 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+}
+.jigsaw{
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
 }
 
-.App-link {
-  color: #61dafb;
+.jigsaw__solved-board{
+  position: relative;
+  background-size: cover;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.jigsaw__solved-board:before{
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.jigsaw__solved-board,
+.jigsaw__shuffled-board{
+  margin: 50px auto;
+  width: 500px;
+  list-style-type: none;
+  padding: 0;
+  font-size: 0;
+  /* border: 1px solid #DDD; */
+  /* border-width: 1px 0 0 1px; */
+}
+.jigsaw ul,ol{
+  border: 2px solid black;
+
+}
+.jigsaw li{
+  position: relative;
+  text-align: left;
+  display: inline-block; 
+  width: 100px;
+  height: 100px;
+  border: 1px solid white;
+  border-width: 0 1px 1px 0;
+}
+
+
+.jigsaw li img{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  cursor: grab;
+  border: 1px solid white;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.jigsaw li img:hover{
+  z-index: 2;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
